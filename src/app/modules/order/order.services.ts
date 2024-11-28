@@ -7,8 +7,12 @@ const createOrderIntoDB = async (orderData: TOrder) => {
     const result = await Order.create(orderData)
     return result;
 }
+const getOrderFromDB = async () => {
+    const result = await Order.find()
+    return result;
+}
 
-const getOrdersFromDB = async () => {
+const getOrdersRevenueFromDB = async () => {
     const result = await Order.aggregate([
         {
             $group: {
@@ -36,5 +40,6 @@ const getOrdersFromDB = async () => {
 
 export const orderServices = {
     createOrderIntoDB,
-    getOrdersFromDB
+    getOrderFromDB,
+    getOrdersRevenueFromDB
 }

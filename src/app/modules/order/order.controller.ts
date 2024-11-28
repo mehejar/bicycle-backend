@@ -24,7 +24,7 @@ const getOrders = async (req: Request, res: Response) => {
 
     try {
 
-        const result = await orderServices.getOrdersFromDB()
+        const result = await orderServices.getOrderFromDB()
 
         res.status(200).json({
             message: "All orders has retrieved",
@@ -38,7 +38,7 @@ const getOrders = async (req: Request, res: Response) => {
 // Orders Reevenue
 const calculateTotalRevenue = async (req: Request, res: Response) => {
     try {
-        const result = await orderServices.getOrdersFromDB()
+        const result = await orderServices.getOrdersRevenueFromDB()
         res.status(200).json({
             message: "Total Revenue Here",
             success: true,
