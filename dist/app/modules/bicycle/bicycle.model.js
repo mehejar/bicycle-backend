@@ -1,13 +1,12 @@
-import { model, Schema, } from 'mongoose';
-import { IBicycle } from './bicycle.interface';
-
-
-const bicycleSchema = new Schema<IBicycle>({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Bicycle = void 0;
+const mongoose_1 = require("mongoose");
+const bicycleSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: [true, 'Product name is required'],
         trim: true,
-
         unique: true
     },
     brand: {
@@ -41,16 +40,8 @@ const bicycleSchema = new Schema<IBicycle>({
         type: Boolean,
         required: [true, 'InStock field is required']
     }
-
-},
-    {
-        timestamps: true,
-        versionKey: false
-    },
-
-)
-
-
-
-export const Bicycle = model<IBicycle>('Bicycle', bicycleSchema);
-
+}, {
+    timestamps: true,
+    versionKey: false
+});
+exports.Bicycle = (0, mongoose_1.model)('Bicycle', bicycleSchema);

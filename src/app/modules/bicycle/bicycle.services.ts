@@ -28,12 +28,9 @@ const deleteSingleBicycleFromDB = async (_id: string) => {
     return result;
 }
 
-type TUpdateDetail = {
-    price: number;
-    quantity: number;
-}
 
-const updateSingleBicycleDetails = async (_id: string, updateDetail: TUpdateDetail) => {
+
+const updateSingleBicycleDetails = async (_id: string, updateDetail: IBicycle) => {
     const result = await Bicycle.findByIdAndUpdate(_id, { $set: { ...updateDetail } }, { new: true })
     return result;
 }
